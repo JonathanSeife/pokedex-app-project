@@ -6,6 +6,6 @@ let pokemonList = [
     { name: 'Jigglypuff', height: 0.5, types: ['fairy', 'normal']}
 ];
 
-let poke0 = pokemonList[3]
+let pokeSquirtle = pokemonList[3]
 
-document.write(`${poke0.name} is ${poke0.height} meters tall and it's type is ${poke0.types} .`);
+document.write(`${pokeSquirtle.name} is ${pokeSquirtle.height} meters tall and it's type is ${pokeSquirtle.types} .`);
