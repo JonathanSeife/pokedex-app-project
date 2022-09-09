@@ -1,29 +1,28 @@
 :root {
-    --background-color: #626266;
-    --font-weight-b: 700;
-    --font-weight-l: 400;
-    --font-size1: 16px;
-    --font-size2: 18px;
-    --font-size3: 22px;
-    --font-size4: 24px;
-    --font-size5: 30px;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: var(--background-color);
-    font-family: 'kalam', sans-serif;
-    font-weight: var(--font-weight-l);
-    font-size: var(--font-size2);
-    line-height: 2.0;
-  }
+  --background-color: #626266;
+  --font-weight-b: 700;
+  --font-weight-l: 400;
+  --font-size1: 16px;
+  --font-size2: 18px;
+  --font-size3: 22px;
+  --font-size4: 24px;
+  --font-size5: 30px;
+}
 
-  .page-header {
-    display: flex;
-    width: 100%;
-    padding: 20px;
-  }
-  
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "kalam", sans-serif;
+  font-weight: var(--font-weight-l);
+  font-size: var(--font-size2);
+  line-height: 2;
+}
+
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
