@@ -1,5 +1,6 @@
 :root {
   --background-color: #626266;
+  --button-background-color: #d7d9db;
   --font-weight-b: 700;
   --font-weight-l: 400;
   --font-size1: 16px;
@@ -25,4 +26,15 @@ body {
   display: flex;
   width: 100%;
   padding: 20px;
+}
+
+.button-class {
+  display: inline-block;
+  background-color: var(--button-background-color);
+  text-align: center;
+  font-size: var(--font-size3);
+  cursor: pointer;
+  padding: 14px;
+  border-radius: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
