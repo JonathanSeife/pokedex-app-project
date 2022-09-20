@@ -31,7 +31,7 @@ let pokemonRepository = (function () {
   }
 
   function showLoadingMessage() {
-    console.log("This info will load briefly");
+    console.log();
   }
 
   function hideLoadingMessage() {
@@ -52,7 +52,6 @@ let pokemonRepository = (function () {
             detailsUrl: item.url,
           };
           add(pokemon);
-          console.log(pokemon);
         });
       })
       .catch(function (e) {
@@ -112,6 +111,7 @@ let pokemonRepository = (function () {
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
+    modal.appendChild(image);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add("is-visible");
