@@ -63,7 +63,10 @@ let pokemonRepository = (function () {
         // Now we add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types;
+        item.types = [];
+        for (var i = 0; i < details.types.length; i++) {
+          item.types.push(details.types[i].type.name);
+        }
       })
       .catch(function (e) {
         console.error(e);
@@ -83,14 +86,12 @@ let pokemonRepository = (function () {
 
     modalTitle.empty();
     modalBody.empty();
-    modalHeader.empty();
 
     let nameElement = $("<h1>" + pokemon.name + "</h1>");
     let imageElement = $('<img class="modal-img">');
-    imageElement.attr("src", pokemon.imageurl);
-
-    let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
-    let typesElement = $("<p>" + "height : " + pokemon.types + "</p>");
+    imageElement.attr("src", pokemon.imageUrl);
+    let heightElement = $("<p>" + "Height: " + pokemon.height + "</p>");
+    let typesElement = $("<p>" + "Types: " + pokemon.types + "</p>");
 
     modalTitle.append(nameElement);
     modalBody.append(imageElement);
