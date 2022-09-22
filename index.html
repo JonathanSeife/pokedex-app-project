@@ -24,7 +24,7 @@
         alt="a logo with a gaming remote and the word Pokedex next to it"
       />
     </header>
-    <div class="container"><ul class="pokemon-list list-group"></ul></div>
+    <div class="container"><li class="pokemon-list list-group list-unstyled"></li>
     <button
       type="button"
       class="btn btn-primary"
@@ -42,29 +42,28 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="pokemon-modal">Pokemon Name</h5>
+            <h5 class="modal-title">Pokemon Name</h5>
             <button
               type="button"
               class="close"
               data-dismiss="modal"
               aria-label="Close"
             >
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true">x</span>
             </button>
           </div>
-          <div class="modal-body"></div>
+          <div class="modal-body">...</div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
-              data-dismiss="modal"
-            ></button>
+              data-dismiss="modal">Close</button>
+            </button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
-    </div>
-
+    </div>    
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
