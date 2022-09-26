@@ -13,18 +13,42 @@
       href="https://fonts.googleapis.com/css2?family=Kalam&family=Roboto+Condensed&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <title>Pokedex - App - Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dist/css/styles.css" />
+    <title>Pokédex - App - Project</title>
   </head>
-
-  <body>
-    <header class="page-header">
-      <img
-        src="img/pokedex-logo.png"
-        alt="a logo with a gaming remote and the word Pokedex next to it"
-      />
+<body>
+    <header>
+      <nav class="navbar fixed-top navbar-dark bg-danger">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Pokédex</a>
+          <img class="header-img" src="img/pokeball.png" alt="Pokeball">
+          <img class="header-img" src="img/pikachu.png" alt="Pikachu">
+          <img class="header-img" src="img/charmander.png" alt="Charmander">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav>
+    <!--navbar items point back to home page for now because we have not added pages to project, but I wanted to include a collapsible navbar-->
+      <div class="collapse navbar-collapse float-right" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Pokémons</a>
+          </li>
     </header>
-    <div class="container"><li class="pokemon-list list-group list-unstyled"></li>
+    <div class="container text-center">
+    <div class="top-description">
+        <h1>Pokémon List</h1>
+        <p>Click on a Pokémons name to view its details.</p>
+    </div>
+    </div>
+    <div>
+      <ul class="pokemon-list list-group list-unstyled"></ul>
+    <!-- Show Pokemon Modal -->
     <button
       type="button"
       class="btn btn-primary"
@@ -59,7 +83,6 @@
               class="btn btn-secondary"
               data-dismiss="modal">Close</button>
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -79,8 +102,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/promise-polyfill.js"></script>
-    <script src="js/fetch-polyfill.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="src/js/promise-polyfill.js"></script>
+    <script src="src/js/fetch-polyfill.js"></script>
+    <script src="dist/js/scripts.js"></script>
   </body>
 </html>
