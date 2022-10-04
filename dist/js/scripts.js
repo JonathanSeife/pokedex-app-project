@@ -1,12 +1,13 @@
 let pokemonRepository = (function () {
-  let t = [];
-  function e() {
+  let t = [],
+    e = document.querySelector("#pokemon-search");
+  function n() {
     return t;
   }
-  function n(e) {
-    'object' == typeof e && 'detailsUrl' in e
+  function o(e) {
+    "object" == typeof e && "detailsUrl" in e
       ? t.push(e)
-      : console.log('pokemon is not correct');
+      : console.log("pokemon is not correct");
   }
   function i(t) {
     return fetch(t.detailsUrl)
@@ -18,77 +19,90 @@ let pokemonRepository = (function () {
           (t.imageUrlBack = e.sprites.back_default),
           (t.height = e.height),
           (t.types = e.types.map(function (t) {
-            return ' ' + t.type.name;
+            return " " + t.type.name;
           })),
           (t.abilities = e.abilities.map(function (t) {
-            return ' ' + t.ability.name;
+            return " " + t.ability.name;
           }));
       })
       .catch(function (t) {
         console.error(t);
       });
   }
-  function o(t) {
+  function a(t) {
     i(t).then(function () {
       var e;
-      let n, i, o, a, r, l, p, s;
+      let n, o, i, a, l, r, s, p;
       (e = t),
-        (n = $('.modal-body')),
-        (i = $('.modal-title')),
-        $('.modal-header'),
-        i.empty(),
+        (n = $(".modal-body")),
+        (o = $(".modal-title")),
+        $(".modal-header"),
+        o.empty(),
         n.empty(),
-        (o = $('<h2>' + e.name[0].toUpperCase() + e.name.slice(1) + '</h2>')),
+        (i = $("<h2>" + e.name[0].toUpperCase() + e.name.slice(1) + "</h2>")),
         (a = $('<img class="modal-img">')),
-        a.attr('src', e.imageUrlFront),
-        (r = $('<img class="modal-img">')),
-        r.attr('src', e.imageUrlBack),
-        (l = $('<p>Height: ' + e.height + '</p>')),
-        (p = $('<p>Types: ' + e.types + '</p>')),
-        (s = $('<p>Abilities: ' + e.abilities + '</p>')),
-        i.append(o),
+        a.attr("src", e.imageUrlFront),
+        (l = $('<img class="modal-img">')),
+        l.attr("src", e.imageUrlBack),
+        (r = $("<p>Height: " + e.height + "</p>")),
+        (s = $("<p>Types: " + e.types + "</p>")),
+        (p = $("<p>Abilities: " + e.abilities + "</p>")),
+        o.append(i),
         n.append(a),
-        n.append(r),
         n.append(l),
-        n.append(p),
-        n.append(s);
+        n.append(r),
+        n.append(s),
+        n.append(p);
     });
   }
-  return {
-    getAll: e,
-    add: n,
-    addListItem: function t(e) {
-      let n = document.querySelector('.pokemon-list'),
-        i = document.createElement('li'),
-        a = document.createElement('button');
-      (a.innerText = e.name[0].toUpperCase() + e.name.slice(1)),
-        a.classList.add('button-class'),
-        a.setAttribute('data-toggle', 'modal'),
-        a.setAttribute('data-target', '#pokemon-modal'),
-        a.classList.add('btn'),
-        i.appendChild(a),
-        n.appendChild(i),
-        a.addEventListener('click', function () {
-          o(e);
-        });
-    },
-    loadList: function t() {
-      return fetch('https://pokeapi.co/api/v2/pokemon/?limit=150')
-        .then(function (t) {
-          return t.json();
-        })
-        .then(function (t) {
-          t.results.forEach(function (t) {
-            n({ name: t.name, detailsUrl: t.url });
+  return (
+    e.addEventListener("input", function () {
+      let t = document.querySelectorAll(".pokemonButton"),
+        n = e.value.toUpperCase();
+      t.forEach(function (t) {
+        t.innerText.toUpperCase().indexOf(n) > -1
+          ? (t.style.display = "list-item")
+          : (t.style.display = "none");
+      });
+    }),
+    {
+      getAll: n,
+      add: o,
+      addListItem: function t(e) {
+        let n = document.querySelector(".pokemon-list"),
+          o = document.createElement("li"),
+          i = document.createElement("button");
+        i.classList.add("pokemonButton"),
+          (i.innerText = e.name[0].toUpperCase() + e.name.slice(1)),
+          i.classList.add("button-class"),
+          i.setAttribute("data-toggle", "modal"),
+          i.setAttribute("data-target", "#pokemon-modal"),
+          i.classList.add("btn"),
+          $(i).addClass("button-class btn-block btn"),
+          o.appendChild(i),
+          n.appendChild(o),
+          i.addEventListener("click", function () {
+            a(e);
           });
-        })
-        .catch(function (t) {
-          console.error(t);
-        });
-    },
-    loadDetails: i,
-    showDetails: o,
-  };
+      },
+      loadList: function t() {
+        return fetch("https://pokeapi.co/api/v2/pokemon/?limit=150")
+          .then(function (t) {
+            return t.json();
+          })
+          .then(function (t) {
+            t.results.forEach(function (t) {
+              o({ name: t.name, detailsUrl: t.url });
+            });
+          })
+          .catch(function (t) {
+            console.error(t);
+          });
+      },
+      loadDetails: i,
+      showDetails: a,
+    }
+  );
 })();
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (t) {
